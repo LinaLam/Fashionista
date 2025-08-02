@@ -1,103 +1,53 @@
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-rose-50 flex flex-col items-center justify-center p-4">
+      <div className="relative w-full max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg">
+        {/* Top Bar */}
+        <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
+          <span className="text-rose-700 font-semibold">9:41</span>
+          <div className="flex items-center space-x-1">
+            {/* <div className="w-4 h-4 bg-earth-700 rounded-full" />
+            <div className="w-4 h-4 bg-earth-700 rounded-full" />
+            <div className="w-4 h-4 bg-earth-700 rounded-full" />
+            <div className="w-6 h-3 border-2 border-earth-700 rounded-sm" /> */}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        {/* Main Content */}
+        <div className="relative w-full h-[500px] sm:h-[600px] overflow-hidden">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/placeholder.svg?height=600&width=400"
+            alt="Brown Suede Jacket"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="absolute inset-0 bg-gradient-to-t from-rose-50 via-transparent to-transparent z-10" />
+          <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-rose-200 text-8xl font-bold opacity-20 select-none pointer-events-none z-0">
+            Serene
+          </h1>
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-20">
+            <h2 className="text-3xl font-bold text-rose-700 mb-2">Your signature look</h2>
+            <p className="text-rose-900/80 text-sm mb-4">
+              Tell us about what you&apos;re looking for!
+            </p>
+            <Input
+              placeholder="Describe your style preferences..."
+              className="mb-4 h-16 bg-white/90 border-rose-300 text-rose-700 placeholder-rose-500"
+            />
+            <Link href="/onboarding">
+              <Button className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-6 rounded-lg text-base w-full">
+                Start your style journey
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
