@@ -6,9 +6,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Palette, Check } from "lucide-react"
 
+interface UserData {
+  [key: string]: unknown
+}
+
 interface ColorAnalysisProps {
-  onNext: (data: any) => void
-  userData: any
+  onNext: (data: UserData) => void
+  userData: UserData
 }
 
 // Mock color palettes based on seasonal color analysis
@@ -35,10 +39,9 @@ const colorPalettes = {
   },
 }
 
-export default function ColorAnalysis({ onNext, userData }: ColorAnalysisProps) {
+export default function ColorAnalysis({ onNext }: ColorAnalysisProps) {
   const [analyzing, setAnalyzing] = useState(true)
   const [selectedPalette, setSelectedPalette] = useState<keyof typeof colorPalettes>("spring")
-  const [confirmed, setConfirmed] = useState(false)
 
   useEffect(() => {
     // Simulate AI analysis
@@ -53,7 +56,6 @@ export default function ColorAnalysis({ onNext, userData }: ColorAnalysisProps) 
   }, [])
 
   const handleConfirm = () => {
-    setConfirmed(true)
     onNext({
       colorPalette: selectedPalette,
       colors: colorPalettes[selectedPalette].colors,
@@ -65,7 +67,7 @@ export default function ColorAnalysis({ onNext, userData }: ColorAnalysisProps) 
       <div className="text-center space-y-6">
         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-earth-700 mx-auto"></div>
         <div>
-          <h2 className="text-xl font-semibold mb-2">Analyzing Your Colors</h2>
+          <h2 className="text-xl font-semibold mb-2">Analyzing Your Style</h2>
           <p className="text-gray-600">Our AI is analyzing your photos to determine your perfect color palette...</p>
         </div>
       </div>
@@ -79,16 +81,16 @@ export default function ColorAnalysis({ onNext, userData }: ColorAnalysisProps) 
       <div className="text-center w-full flex flex-col items-center">
         <Palette className="h-12 w-12 text-rose-700 mx-auto mb-4" />
         <h2 className="text-xl font-semibold mb-2">Your Color Analysis</h2>
-        <Badge variant="default" className="flex flex-col text-md px-4 py-2 bg-rose-900/10 text-rose-800 border border-rose-900/20">
+        <Badge variant="default" className="flex flex-col text-md w-full px-4 py-2 mt-4 bg-rose-600/10 text-rose-800 border">
+          We think { }
           {palette.name}
+          { } suit you best based on your skin tone:
           <p className="text-rose-900/60 text-sm mt-2">{palette.description}</p>
         </Badge>
-
       </div>
 
       <Card className="bg-none border-none rounded-sm shadow-none">
-        <CardContent className="p-4">
-          <h3 className="font-semibold w-full text-center mb-10">We think these colors suit you best based on your skin tone:</h3>
+        <CardContent className="">
           <div className="grid grid-cols-3 gap-2 mb-6">
             {palette.colors.map((color, index) => (
               <div key={index} className="relative">

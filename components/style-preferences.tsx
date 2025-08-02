@@ -8,9 +8,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Heart, X, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 
+interface UserData {
+  [key: string]: unknown
+}
+
 interface StylePreferencesProps {
-  onNext: (data: any) => void
-  userData: any
+  onNext: (data: UserData) => void
+  userData: UserData
 }
 
 const styleArchetypes = [
@@ -76,7 +80,7 @@ const styleArchetypes = [
   },
 ]
 
-export default function StylePreferences({ onNext, userData }: StylePreferencesProps) {
+export default function StylePreferences({ onNext }: StylePreferencesProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [likes, setLikes] = useState<string[]>([])
   const [dislikes, setDislikes] = useState<string[]>([])
@@ -192,16 +196,19 @@ export default function StylePreferences({ onNext, userData }: StylePreferencesP
 
             <div className="flex justify-center gap-4 sm:gap-6">
               <Button
-                variant="outline"
+                variant="ghost"
                 onClick={handleDislike}
-                className="border-red-300 bg-red-100 hover:bg-red-200 text-red-700 min-h-16 min-w-32 text-lg font-semibold touch-manipulation"
+                className="hover:bg-slate-100 text-slate-700 min-h-16 min-w-32 text-lg font-semibold touch-manipulation"
               >
+                <X className="size-6 text-slate-700" />
                 Not my style
               </Button>
               <Button
                 onClick={handleLike}
-                className="border-green-300 bg-green-100 hover:bg-green-200 text-green-700 min-h-16 min-w-32 text-lg font-semibold touch-manipulation"
+                variant="outline"
+                className="bg-rose-100 border-rose-300 hover:bg-rose-200 text-rose-700 min-h-16 min-w-40 text-lg touch-manipulation"
               >
+                <Heart className="size-6 text-rose-700" />
                 Love this!
               </Button>
             </div>
@@ -236,7 +243,7 @@ export default function StylePreferences({ onNext, userData }: StylePreferencesP
             {likes.map((styleId) => {
               const style = styleArchetypes.find((s) => s.id === styleId)
               return (
-                <Badge key={styleId} variant="secondary" className="text-xs">
+                <Badge key={styleId} variant="secondary" className="text-xs bg-rose-100 text-rose-700">
                   {style?.name}
                 </Badge>
               )

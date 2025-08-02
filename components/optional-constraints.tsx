@@ -9,9 +9,13 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Settings, DollarSign, Calendar, Star } from "lucide-react"
 
+interface UserData {
+  [key: string]: unknown
+}
+
 interface OptionalConstraintsProps {
-  onNext: (data: any) => void
-  userData: any
+  onNext: (data: UserData) => void
+  userData: UserData
 }
 
 const occasions = [
@@ -39,7 +43,7 @@ const brands = [
   "Gap",
 ]
 
-export default function OptionalConstraints({ onNext, userData }: OptionalConstraintsProps) {
+export default function OptionalConstraints({ onNext }: OptionalConstraintsProps) {
   const [occasion, setOccasion] = useState("")
   const [minBudget, setMinBudget] = useState("")
   const [maxBudget, setMaxBudget] = useState("")
@@ -63,7 +67,7 @@ export default function OptionalConstraints({ onNext, userData }: OptionalConstr
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <Settings className="h-12 w-12 text-earth-700 mx-auto mb-4" />
+        <Settings className="h-12 w-12 text-rose-700 mx-auto mb-4" />
         <h2 className="text-xl font-semibold mb-2">Final Preferences</h2>
         <p className="text-gray-600">Optional details to make your outfits even more relevant</p>
       </div>
@@ -78,8 +82,8 @@ export default function OptionalConstraints({ onNext, userData }: OptionalConstr
           </CardHeader>
           <CardContent>
             <Select value={occasion} onValueChange={setOccasion}>
-              <SelectTrigger>
-                <SelectValue placeholder="What's the occasion? (Optional)" />
+              <SelectTrigger className="border-rose-900/10 focus:border-rose-500 focus:ring-rose-500">
+                <SelectValue placeholder="What's the occasion? " />
               </SelectTrigger>
               <SelectContent>
                 {occasions.map((occ) => (
@@ -109,6 +113,7 @@ export default function OptionalConstraints({ onNext, userData }: OptionalConstr
                   value={minBudget}
                   onChange={(e) => setMinBudget(e.target.value)}
                   placeholder="50"
+                  className="border-rose-900/10 focus:border-rose-500 focus:ring-rose-500"
                 />
               </div>
               <div>
@@ -119,6 +124,7 @@ export default function OptionalConstraints({ onNext, userData }: OptionalConstr
                   value={maxBudget}
                   onChange={(e) => setMaxBudget(e.target.value)}
                   placeholder="200"
+                  className="border-rose-900/10 focus:border-rose-500 focus:ring-rose-500"
                 />
               </div>
             </div>

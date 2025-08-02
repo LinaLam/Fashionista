@@ -3,14 +3,18 @@
 import { useState, useCallback, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Upload, X, Camera, Plus } from "lucide-react"
+import { X, Camera, Plus } from "lucide-react"
 
-interface PhotoUploadProps {
-  onNext: (data: any) => void
-  userData: any
+interface UserData {
+  [key: string]: unknown
 }
 
-export default function PhotoUpload({ onNext, userData }: PhotoUploadProps) {
+interface PhotoUploadProps {
+  onNext: (data: UserData) => void
+  userData: UserData
+}
+
+export default function PhotoUpload({ onNext }: PhotoUploadProps) {
   const [photos, setPhotos] = useState<File[]>([])
   const [previews, setPreviews] = useState<string[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -48,7 +52,7 @@ export default function PhotoUpload({ onNext, userData }: PhotoUploadProps) {
         <Camera className="h-10 w-10 sm:h-12 sm:w-12 text-rose-700 mx-auto mb-3 sm:mb-4" />
         <h2 className="text-lg sm:text-xl font-semibold mb-2">Upload Your Photos</h2>
         <p className="text-sm sm:text-base text-gray-600 px-2">
-          Upload 3-5 photos from different angles and lighting. We'll help you find the best analysis.
+          Upload 3-5 photos from different angles and lighting. We&apos;ll help you find the best analysis.
         </p>
       </div>
 
