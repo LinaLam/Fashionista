@@ -1,0 +1,17 @@
+<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="400" fill="#f4e4c1"/>
+  <rect x="50" y="80" width="200" height="120" fill="#d4a574"/>
+  <rect x="60" y="90" width="180" height="100" fill="#e6c384"/>
+  <path d="M 70 100 L 90 100 L 90 120 L 70 120 Z" fill="#8b4513"/>
+  <path d="M 100 100 L 120 100 L 120 120 L 100 120 Z" fill="#cd853f"/>
+  <path d="M 130 100 L 150 100 L 150 120 L 130 120 Z" fill="#8b4513"/>
+  <path d="M 160 100 L 180 100 L 180 120 L 160 120 Z" fill="#cd853f"/>
+  <path d="M 190 100 L 210 100 L 210 120 L 190 120 Z" fill="#8b4513"/>
+  <path d="M 70 130 L 90 130 L 90 150 L 70 150 Z" fill="#cd853f"/>
+  <path d="M 100 130 L 120 130 L 120 150 L 100 150 Z" fill="#8b4513"/>
+  <path d="M 130 130 L 150 130 L 150 150 L 130 150 Z" fill="#cd853f"/>
+  <path d="M 160 130 L 180 130 L 180 150 L 160 150 Z" fill="#8b4513"/>
+  <path d="M 190 130 L 210 130 L 210 150 L 190 150 Z" fill="#cd853f"/>
+  <text x="150" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#8b4513">Vintage</text>
+  <text x="150" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cd853f">Retro & Nostalgic</text>
+</svg> 

@@ -21,11 +21,10 @@ export default function HomePage() {
         {/* Main Content */}
         <div className="relative w-full h-[500px] sm:h-[600px] overflow-hidden">
           <Image
-            src="/placeholder.svg?height=600&width=400"
+            src="/placeholder.svg"
             alt="Brown Suede Jacket"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
+            fill
+            className="object-cover z-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-rose-50 via-transparent to-transparent z-10" />
           <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-rose-200 text-8xl font-bold opacity-20 select-none pointer-events-none z-0">

@@ -1,0 +1,8 @@
+<svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="300" fill="#f3f4f6"/>
+  <rect x="10" y="10" width="180" height="280" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2"/>
+  <text x="100" y="140" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="12">Image</text>
+  <text x="100" y="160" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="10">Placeholder</text>
+  <rect x="60" y="180" width="80" height="60" fill="#d1d5db" rx="4"/>
+  <text x="100" y="220" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="8">Style</text>
+</svg> 

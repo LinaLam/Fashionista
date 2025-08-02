@@ -1,0 +1,11 @@
+<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="400" fill="#f4f1eb"/>
+  <circle cx="150" cy="120" r="40" fill="#8b4513" opacity="0.3"/>
+  <circle cx="180" cy="140" r="25" fill="#d2691e" opacity="0.4"/>
+  <circle cx="120" cy="140" r="20" fill="#cd853f" opacity="0.5"/>
+  <path d="M 80 200 Q 150 180 220 200 Q 150 220 80 200" fill="#8b4513" opacity="0.2"/>
+  <path d="M 90 210 Q 150 190 210 210 Q 150 230 90 210" fill="#d2691e" opacity="0.3"/>
+  <path d="M 100 220 Q 150 200 200 220 Q 150 240 100 220" fill="#cd853f" opacity="0.4"/>
+  <text x="150" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#8b4513">Bohemian</text>
+  <text x="150" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#d2691e">Free & Flowing</text>
+</svg> 

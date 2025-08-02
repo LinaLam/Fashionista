@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useRef } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -18,61 +19,61 @@ const styleArchetypes = [
     id: "minimalist",
     name: "Minimalist",
     description: "Clean lines, neutral colors, simple silhouettes",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/minimalist.jpg",
   },
   {
     id: "bohemian",
     name: "Bohemian",
     description: "Flowy fabrics, earthy tones, layered accessories",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/bohemian.jpg",
   },
   {
     id: "classic",
     name: "Classic",
     description: "Timeless pieces, structured fits, elegant details",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/classic.jpg",
   },
   {
     id: "edgy",
     name: "Edgy",
     description: "Bold patterns, leather, statement pieces",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/edgy.jpg",
   },
   {
     id: "romantic",
     name: "Romantic",
     description: "Soft fabrics, floral prints, feminine details",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/romantic.jpg",
   },
   {
     id: "sporty",
     name: "Sporty",
     description: "Athletic wear, comfortable fits, functional pieces",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/sporty.jpg",
   },
   {
     id: "glamorous",
     name: "Glamorous",
     description: "Luxe fabrics, bold colors, statement jewelry",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/glamorous.jpg",
   },
   {
     id: "casual",
     name: "Casual",
     description: "Relaxed fits, everyday comfort, versatile pieces",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/casual.jpg",
   },
   {
     id: "vintage",
     name: "Vintage",
     description: "Retro styles, unique patterns, nostalgic pieces",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/vintage.jpg",
   },
   {
     id: "preppy",
     name: "Preppy",
     description: "Polished looks, classic patterns, refined details",
-    image: "/placeholder.svg?height=300&width=200",
+    image: "/images/styles/preppy.jpg",
   },
 ]
 
@@ -182,11 +183,15 @@ export default function StylePreferences({ onNext, userData }: StylePreferencesP
           onTouchEnd={onTouchEnd}
         >
           <CardContent className="p-4 sm:p-6 text-center">
-            <img
-              src={currentStyle.image || "/placeholder.svg"}
-              alt={currentStyle.name}
-              className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4"
-            />
+            <div className="relative w-full h-48 sm:h-64 mb-4">
+              <Image
+                src={currentStyle.image || "/placeholder.svg"}
+                alt={currentStyle.name}
+                fill
+                className="object-cover rounded-lg"
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-2">{currentStyle.name}</h3>
             <p className="text-sm sm:text-base text-gray-600 mb-6 px-2">{currentStyle.description}</p>
 
