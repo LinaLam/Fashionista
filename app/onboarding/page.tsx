@@ -12,6 +12,10 @@ import BodyMetrics from "@/components/body-metrics"
 import StylePreferences from "@/components/style-preferences"
 import OptionalConstraints from "@/components/optional-constraints"
 
+interface UserData {
+  [key: string]: unknown
+}
+
 const steps = [
   { id: "photos", title: "Upload Photos", component: PhotoUpload },
   { id: "colors", title: "Color Analysis", component: ColorAnalysis },
@@ -22,12 +26,12 @@ const steps = [
 
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(0)
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState<UserData>({})
   const router = useRouter()
 
   const progress = ((currentStep + 1) / steps.length) * 100
 
-  const handleNext = (data: any) => {
+  const handleNext = (data: UserData) => {
     setUserData((prev) => ({ ...prev, ...data }))
 
     if (currentStep < steps.length - 1) {

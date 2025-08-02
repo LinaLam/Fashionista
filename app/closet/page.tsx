@@ -3,17 +3,32 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Heart, ShoppingBag, ArrowLeft, Trash2 } from "lucide-react"
 import Link from "next/link"
 
+interface OutfitItem {
+  id: string
+  name: string
+  brand: string
+  price: number
+  image: string
+}
+
+interface SavedOutfit {
+  id: string
+  occasion: string
+  totalPrice: number
+  savedAt: string
+  items: OutfitItem[]
+}
+
 export default function ClosetPage() {
-  const [savedOutfits, setSavedOutfits] = useState<any[]>([])
+  const [savedOutfits, setSavedOutfits] = useState<SavedOutfit[]>([])
 
   useEffect(() => {
     // In a real app, this would fetch from a database
     // For now, we'll use mock data
-    const mockSavedOutfits = [
+    const mockSavedOutfits: SavedOutfit[] = [
       {
         id: "1",
         occasion: "Work Professional",
@@ -97,12 +112,12 @@ export default function ClosetPage() {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    <Badge variant="secondary">{outfit.occasion}</Badge>
+                    <div className="text-sm text-gray-600">{outfit.occasion}</div>
                   </CardHeader>
 
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-3 gap-2">
-                      {outfit.items.map((item: any) => (
+                      {outfit.items.map((item: OutfitItem) => (
                         <div key={item.id} className="text-center">
                           <img
                             src={item.image || "/placeholder.svg"}

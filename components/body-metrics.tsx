@@ -7,19 +7,23 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { User, Ruler, Scale, Calendar, Heart } from "lucide-react"
+import { User, Ruler, Calendar, Heart } from "lucide-react"
+
+interface UserData {
+  [key: string]: unknown
+}
 
 interface BodyMetricsProps {
-  onNext: (data: any) => void
-  userData: any
+  onNext: (data: UserData) => void
+  userData: UserData
 }
 
 export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
-  const [height, setHeight] = useState(userData.height || 170)
-  const [weight, setWeight] = useState(userData.weight || 65)
-  const [age, setAge] = useState(userData.age || 25)
-  const [bodyType, setBodyType] = useState(userData.bodyType || "")
-  const [size, setSize] = useState(userData.size || "")
+  const [height, setHeight] = useState(userData.height as number || 170)
+  const [weight, setWeight] = useState(userData.weight as number || 65)
+  const [age, setAge] = useState(userData.age as number || 25)
+  const [bodyType] = useState(userData.bodyType as string || "")
+  const [size, setSize] = useState(userData.size as string || "")
 
   // Avatar customization sliders
   const [shoulderWidth, setShoulderWidth] = useState([50])
@@ -55,7 +59,7 @@ export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
         <p className="text-gray-600 max-w-md mx-auto">Help us create an accurate avatar and recommend the best fits for your unique body type</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8">
         <Card className="border-rose-900/10 shadow-sm hover:shadow-md transition-shadow">
           <CardHeader className="pb-4">
             <CardTitle className="text-lg flex items-center gap-2 text-rose-800">
@@ -121,7 +125,7 @@ export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
             </div> */}
 
             <div className="space-y-2">
-              <Label className="text-nd font-medium text-gray-700">Clothing Size</Label>
+              <Label className="text-md font-medium  text-gray-700">Clothing Size</Label>
               <Select value={size} onValueChange={setSize}>
                 <SelectTrigger className="border-rose-900/10 focus:border-rose-500 focus:ring-rose-500">
                   <SelectValue placeholder="Select size" />
@@ -140,13 +144,13 @@ export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
         </Card>
 
         <Card className="border-rose-900/10 shadow-sm hover:shadow-md transition-shadow">
-          <CardHeader className="pb-4">
+          <CardHeader className="pb-0 ">
             <CardTitle className="text-lg flex items-center gap-2 text-rose-800">
               <Heart className="h-5 w-5" />
               Avatar Customization
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="grid grid-cols-2 gap-6">
             {/* Enhanced avatar preview */}
             <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-xl p-6 text-center border border-rose-900/10">
               <div className="text-sm font-medium text-rose-800 mb-4">Preview</div>
@@ -163,7 +167,7 @@ export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
                 </div>
 
                 {/* Neck */}
-                <div className="absolute top-9 left-1/2 transform -translate-x-1/2 w-4 h-3 bg-rose-300 rounded-full"></div>
+                <div className="absolute top-9 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-rose-300 rounded-full"></div>
 
                 {/* Shoulders - responsive to shoulder width slider */}
                 <div
@@ -214,10 +218,6 @@ export default function BodyMetrics({ onNext, userData }: BodyMetricsProps) {
                   <div className="w-3 h-10 bg-rose-300 rounded-b"></div>
                   <div className="w-3 h-10 bg-rose-300 rounded-b"></div>
                 </div>
-              </div>
-
-              <div className="mt-4 text-xs text-rose-700">
-                Adjust sliders to customize your avatar
               </div>
             </div>
             <div className="space-y-5">
