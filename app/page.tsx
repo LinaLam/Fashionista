@@ -7,10 +7,10 @@ import { Textarea } from "@/components/ui/textarea"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-rose-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-rose-50/80 flex flex-col items-center justify-center p-4">
       <div className="relative w-full max-w-md mx-auto">
         {/* Background Cards */}
-        <div className="absolute top-12 right-80 w-full h-[520px] bg-white rounded-xl overflow-hidden shadow-md z-0 transform -rotate-6">
+        <div className="absolute top-12 right-80 w-full h-[520px] bg-white rounded-xl overflow-hidden shadow-md z-0 transform -rotate-6 transition-transform duration-600 ease-in-out hover:-translate-x-4">
           <Image
             src="/images/intro/uniqlo-intro-2.jpg"
             alt="Casual Style"
@@ -21,9 +21,9 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-rose-50/30 via-transparent to-transparent" />
         </div>
 
-        <div className="absolute top-12 left-80 w-full h-[520px] bg-white rounded-xl overflow-hidden shadow-md z-10 transform rotate-6">
+        <div className="absolute top-12 left-80 w-full h-[520px] bg-white rounded-xl overflow-hidden shadow-md z-10 transform rotate-6 transition-transform duration-600 ease-in-out hover:translate-x-4">
           <Image
-            src="/images/intro/uniqlo-intro.jpeg"
+            src="/images/styles/bohemian.jpg"
             alt="Classic Style"
             fill
             className="object-cover"
